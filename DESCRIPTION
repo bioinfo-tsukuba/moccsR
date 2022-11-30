@@ -1,6 +1,6 @@
 Package: moccsR
 Type: Package
-Title: Caluculate MOCCS2 score from specified ChIP-seq data (fasta file)
+Title: Caluculate MOCCS2score from specified ChIP-seq data (fasta file)
 Version: 0.99.0
 Authors@R:
     person(
