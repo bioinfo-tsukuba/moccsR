@@ -1,5 +1,5 @@
 ---
-title: "R Package for Caluculate MOCCS2score"
+title: "Caluculate MOCCS2score in R
 author: "Ryosuke Matsuzawa"
 output: BiocStyle::html_document
 vignette: >
