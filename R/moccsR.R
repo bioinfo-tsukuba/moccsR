@@ -23,8 +23,13 @@ getvalue <- Vectorize(
 #' @importFrom dplyr sym
 #' @importFrom stats p.adjust
 #' @importFrom stats pnorm
+#' @return data.frame that consists of kmer, auc, MOCCS2score, p-value, and
+#' q-value.
+#' @examples 
+#' fastaPath <- system.file("count.fasta", package = "moccsR")
+#' calcMOCCS2score(fastaPath, k = 6, ignoreLowerCase = TRUE)
 #' @export
-calcMOCCS2score <- function(fasta, k, ignoreLowerCase = T) {
+calcMOCCS2score <- function(fasta, k, ignoreLowerCase = TRUE) {
     auc <- sym("AUC")
     pValue <- sym("pValue")
     qValue <- sym("qValue")
