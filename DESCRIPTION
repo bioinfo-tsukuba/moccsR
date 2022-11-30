@@ -1,18 +1,40 @@
 Package: moccsR
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: Ryosuke Matsuzawa <kinakomochi.work@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Title: Caluculate MOCCS2 score from specified ChIP-seq data (fasta file)
+Version: 0.99.0
+Authors@R:
+    person(
+        given = "Ryosuke",
+        family = "Matsuzawa",
+        role = c("aut", "cre"),
+        email = "kinakomochi.work@gmail.com",
+        comment = c(ORCID = "0000-0003-2999-4734")
+    )
+Description: MOCCS2 is a method for detecting transcription factor recognition
+    sequences (Yoshitane et al., 2019) and it was implemented in Perl
+    (https://github.com/yuifu/moccs). This package allows MOCCS2 to be run in R.
+    It returns a data frame that consists of kmer, auc, MOCCS2score, p-value,
+    and q-value.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+LazyData: FALSE
+Depends:
+    R (>= 4.2)
+biocViews:
+    ChIPSeq,
+    Transcription
 Imports: 
     Rcpp,
     tibble,
-    dplyr
+    dplyr,
+    stats
 LinkingTo: Rcpp
 RoxygenNote: 7.2.2
 Roxygen: list(markdown = TRUE)
+Suggests: 
+    knitr,
+    rmarkdown,
+    BiocStyle,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3

@@ -4,7 +4,7 @@
 \alias{calcMOCCS2score}
 \title{Calculate MOCCS2score}
 \usage{
-calcMOCCS2score(fasta, k, ignoreLowerCase = T)
+calcMOCCS2score(fasta, k, ignoreLowerCase = TRUE)
 }
 \arguments{
 \item{fasta}{Input fasta file}
@@ -14,6 +14,14 @@ calcMOCCS2score(fasta, k, ignoreLowerCase = T)
 \item{ignoreLowerCase}{Logical parameter. If TRUE, the function ignores
 lower case character in fasta file.}
 }
+\value{
+data.frame that consists of kmer, auc, MOCCS2score, p-value, and
+q-value.
+}
 \description{
 Calculate MOCCS2score
+}
+\examples{
+fastaPath <- system.file("count.fasta", package = "moccsR")
+calcMOCCS2score(fastaPath, k = 6, ignoreLowerCase = TRUE)
 }

@@ -1,0 +1,61 @@
+---
+title: "R Package for Caluculate MOCCS2score"
+author: "Ryosuke Matsuzawa"
+output: BiocStyle::html_document
+vignette: >
+    %\VignetteIndexEntry{moccsR}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+
+# Introduction
+
+
+MOCCS2 is a method for detecting transcription factor recognition
+sequences ([Yoshitane et al., 2019](https://doi.org/10.1038/s42003-019-0522-3))
+and it was implemented in Perl
+([Ozaki et al., 2016](https://doi.org/10.1016/j.compbiolchem.2016.01.014);
+https://github.com/yuifu/moccs). This package allows MOCCS2 to be run in R.
+
+# Installation and loading
+
+You can install moccsR package with this command:
+
+```{r eval = FALSE}
+remotes::install_github("https://github.com/bioinfo-tsukuba/moccsR.git")
+```
+
+You can load moccsR package with this command:
+```{r setup, message = FALSE}
+library(moccsR)
+```
+
+# Data preparation
+
+You can use ChIP-seq data as fasta file.
+moccsR package has test data and You can obtain its
+path with this command:
+```{r}
+fastaPath <- system.file("count.fasta", package = "moccsR")
+```
+
+# Caluculate MOCCS2score
+
+You can calculate MOCCS2score with this command:
+```{r}
+calcMOCCS2score(fastaPath, k = 6, ignoreLowerCase = TRUE)
+```
+
+The parameter `fastaPath` represents the path to fasta file you want to run
+with. `k` is length of mer (if you want to caluculate MOCCS2score of 6-mer, set
+`k` to 6).
+If parameter `ignoreLowerCase` is TRUE (default), moccsR ignores
+lower-case characters in fasta file. This behavior assumes that repeat sequences
+are represented in lower case in fasta files. You can include lower-case
+characters setting `ignoreLowerCase` to `FALSE`.
+
+# SessionInfo
+```{r}
+sessionInfo()
+```
